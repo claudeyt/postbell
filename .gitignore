@@ -1,0 +1,18 @@
+node_modules/
+dist/
+dist-renderer/
+dist-backend/
+build/*
+!build/icon.ico
+out/
+
+# Self-contained source (copied from postbell2 dev location)
+frontend/node_modules/
+frontend/dist/
+frontend/tsconfig.tsbuildinfo
+backend/__pycache__/
+backend/**/__pycache__/
+backend/.pytest_cache/
+
+# Local data (.lock, etc) — actual data lives in shared-data/
+backend/data/
