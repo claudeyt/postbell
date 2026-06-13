@@ -4,6 +4,7 @@ from pathlib import Path
 from fastapi import APIRouter, Depends, HTTPException, status, UploadFile, File
 from sqlalchemy.orm import Session
 
+from backend.config import settings
 from backend.database import get_db
 from backend.models.project import Project
 from backend.schemas.project import ProjectCreate, ProjectResponse
@@ -75,7 +76,7 @@ async def upload_secret(file: UploadFile = File(...)):
             detail=f"Missing 'client_id' or 'client_secret' in '{app_type}' section.",
         )
 
-    secrets_dir = Path("data/secrets")
+    secrets_dir = settings.data_dir / "secrets"
     secrets_dir.mkdir(parents=True, exist_ok=True)
 
     filename = file.filename or "client_secret.json"
